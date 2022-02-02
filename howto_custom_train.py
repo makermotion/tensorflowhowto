@@ -45,15 +45,15 @@ for epoch in range(epochs):
     # but we have to call result() of train accuracy metric object
     losses_train = train_step()
     train_acc = train_acc_metric.result()
-    
+
     # perform one validation step
     # this will calculate and return validation loss
     # and also update the validation accuracy metric
     # but we have to call result() for validation accuracy metric object
     losses_val = validation_step()
     val_acc = val_acc_metric()
-    
-    # we get the mean training loss for each input 
+
+    # we get the mean training loss for each input
     losses_train_mean = np.mean(losses_train)
 
     # we get the mean validation loss for each input
@@ -64,7 +64,7 @@ for epoch in range(epochs):
 
     # we append the mean validation loss for this step to a list
     epochs_val_losses.append(losses_train_mean)
-    
+
     # last but not least we reset the accuracy metric object state
     # for the next run
     train_acc_metric.reset_states()
